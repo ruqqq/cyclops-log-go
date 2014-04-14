@@ -1,0 +1,8 @@
+files: ["test.txt"]
+detect: [["err"]]
+excerpt_size: 100
+mail:
+    name: "Cyclops by Faruq Rasid"
+    email: "me@gmail.com"
+    password: ""
+    to: "hello@gmail.com"
