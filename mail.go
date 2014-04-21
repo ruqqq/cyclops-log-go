@@ -3,6 +3,7 @@ package main
 import (
 	"fmt"
 	"net/smtp"
+	"strconv"
 )
 
 type Mail struct {
@@ -10,6 +11,8 @@ type Mail struct {
 	Email    string
 	Password string
 	To       string
+	Address  string
+	Port     int
 }
 
 func (mail *Mail) send(body string) {
@@ -17,13 +20,13 @@ func (mail *Mail) send(body string) {
 		"",
 		mail.Email,
 		mail.Password,
-		"smtp.gmail.com",
+		mail.Address,
 	)
 
 	fmt.Println("Sending email to " + mail.To)
 
 	err := smtp.SendMail(
-		"smtp.gmail.com:587",
+		mail.Address+":"+strconv.Itoa(mail.Port),
 		auth,
 		mail.Email,
 		[]string{mail.To},

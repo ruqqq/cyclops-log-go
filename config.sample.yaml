@@ -6,3 +6,5 @@ mail:
     email: "me@gmail.com"
     password: ""
     to: "hello@gmail.com"
+    address: "smtp.gmail.com"
+    port: 587
